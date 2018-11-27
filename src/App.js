@@ -1,5 +1,5 @@
 import React from 'react'
-import PokemonIndex from './components/PokemonIndex'
+import PokemonIndex from './containers/PokemonIndex'
 import './App.css'
 
 const App = () => (
