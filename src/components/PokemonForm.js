@@ -7,16 +7,39 @@ class PokemonForm extends React.Component {
 
     this.state = {
       name: '',
-      hp: '',
-      frontUrl: '',
-      backUrl: ''
+      stats: [{
+        value: 0,
+        name: "hp"
+      }],
+      sprites: {
+        front: "",
+        back: ""
+      }
     }
   }
 
   handleFormChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
+    const formData = {...this.state}
+
+    switch (e.target.name) {
+      case "name":
+        formData.name = e.target.value
+        break;
+      case "hp":
+        formData.stats[0].value = e.target.value
+        break;
+      case "frontUrl":
+        formData.sprites.front = e.target.value
+        break;
+      case "backUrl":
+        formData.sprites.back = e.target.value
+        break;
+      default:
+        formData
+      break
+    }
+
+    this.setState(formData)
   }
 
   handleSubmit = () => {
